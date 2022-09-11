@@ -15,6 +15,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
         database: 'users_tags',
         logging: 'all',
         logger: 'advanced-console',
+        entities: [__dirname + '/../../../src/entity/dao/**/*.js']
       }),
     })
   ],

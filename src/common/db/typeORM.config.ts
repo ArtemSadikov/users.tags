@@ -7,7 +7,6 @@ export default new DataSource({
   username: 'usertag',
   password: 'qwerty',
   database: 'users_tags',
-  migrations: [__dirname + '/../../../' + 'migrations/**/*.{js,ts}'],
+  migrations: ['migrations/**/*.{js,ts}'],
   entities: ['src/modules/**/repository/postgres/dao/*.entity.{js,ts}'],
 })
-console.log(__dirname + '/../../../' + 'migrations/**/*.{js,ts}');
