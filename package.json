@@ -26,6 +26,9 @@
     "migration:revert": "yarn build && yarn typeorm migration:revert -d dist/src/common/db/typeORM.config.js"
   },
   "dependencies": {
+    "@automapper/classes": "^8.7.6",
+    "@automapper/core": "^8.7.6",
+    "@automapper/nestjs": "^8.7.6",
     "@nestjs/common": "^8.0.0",
     "@nestjs/core": "^8.0.0",
     "@nestjs/platform-express": "^8.0.0",

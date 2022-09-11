@@ -1,3 +1,4 @@
+import { AutoMap } from '@automapper/classes';
 import { randomUUID } from 'crypto';
 import { UserEmail } from './email/user-email';
 import { UserNickname } from './nickname/user-nickname';

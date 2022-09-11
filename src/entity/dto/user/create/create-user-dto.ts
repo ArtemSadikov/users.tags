@@ -1,3 +1,4 @@
+import { AutoMap } from '@automapper/classes';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateUserDto {
@@ -5,12 +6,14 @@ export class CreateUserDto {
     required: true,
     type: String,
   })
+  @AutoMap()
   nickname: string
 
   @ApiProperty({
     required: true,
     type: String,
   })
+  @AutoMap()
   email: string
 
   @ApiProperty({
@@ -19,5 +22,6 @@ export class CreateUserDto {
     minLength: 8,
     examples: ['Qwerty123']
   })
+  @AutoMap()
   password: string
 }

@@ -1,3 +1,5 @@
+import { Mapper } from '@automapper/core';
+import { InjectMapper } from '@automapper/nestjs';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { UserDaoEntity } from 'src/entity/dao/user/user.entity';
@@ -10,18 +12,14 @@ export class CreateUserService
   implements CreateUserServicePort {
   constructor(
     @InjectRepository(UserDaoEntity)
-    private readonly _repository: Repository<UserDaoEntity>
+    private readonly _repository: Repository<UserDaoEntity>,
+    @InjectMapper()
+    private readonly _mapper: Mapper
   ) {}
 
   public async create(data: User): Promise<User> {
-    const entity = new UserDaoEntity()
-    entity.uid = data.id;
-    entity.email = data.email.value;
-    entity.password = data.password.value;
-    entity.nickname = data.nickname.value;
-
-    await this._repository.insert(entity);
-
-    return data;
+    const entity = this._mapper.map(data, User, UserDaoEntity);
+    const result = await this._repository.save(entity);
+    return this._mapper.map(result, UserDaoEntity, User);
   }
 }

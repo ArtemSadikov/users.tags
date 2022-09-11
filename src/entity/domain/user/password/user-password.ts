@@ -11,7 +11,15 @@ export class UserPassword {
       throw new Error("Password must contain 8 symbols.")
     }
 
-    if (!MUST_CONTAIN_REGEX.test(_value)) {
+    if (!/[A-Z]/g.test(_value)) {
+      throw new Error("Password must have at least one uppercase, lowercase and one digit.")
+    }
+
+    if (!/[a-z]/g.test(_value)) {
+      throw new Error("Password must have at least one uppercase, lowercase and one digit.")
+    }
+
+    if (!/\d/g.test(_value)) {
       throw new Error("Password must have at least one uppercase, lowercase and one digit.")
     }
   }
