@@ -1,5 +1,4 @@
 const MIN_LENGTH = 8;
-const MUST_CONTAIN_REGEX = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[a-zA-Z]).{8,}$/g
 
 export type TUserPassword = string
 
